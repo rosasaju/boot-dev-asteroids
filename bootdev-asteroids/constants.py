@@ -4,4 +4,4 @@ SCREEN_HEIGHT = 720
 # Player ship constants 
 PLAYER_RADIUS = 20 
 LINE_WIDTH = 2
-
+PLAYER_TURN_SPEED = 300
