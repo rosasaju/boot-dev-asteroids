@@ -9,6 +9,10 @@ def main():
     pygame.init()
     screen: pygame.Surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # Set Game clock 
+    game_clock: pygame.time.Clock = pygame.time.Clock()
+    dt: float = 0.0
+
     # GAME loop s
     while True: 
         log_state()
@@ -20,6 +24,8 @@ def main():
 
         screen.fill("black")
         pygame.display.flip()  # refresh the screen
+
+        dt = game_clock.tick(60) / 1000
 
 if __name__ == "__main__":
     main()
