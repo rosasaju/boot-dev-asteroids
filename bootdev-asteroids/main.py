@@ -14,7 +14,12 @@ def main():
     game_clock: pygame.time.Clock = pygame.time.Clock()
     dt: float = 0.0
 
+    # initiate group objects 
+    updatable: pygame.sprite.Group = pygame.sprite.Group()
+    drawable: pygame.sprite.Group = pygame.sprite.Group()
+
     # initiate player object 
+    Player.containers = (updatable, drawable)
     player_object: Player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     # GAME loop s
@@ -27,8 +32,12 @@ def main():
                 return
 
         screen.fill("black")
-        player_object.update(dt)
-        player_object.draw(screen)
+
+        # update 
+        updatable.update(dt) 
+
+        for game_object in drawable:  
+            game_object.draw(screen)
 
         pygame.display.flip()  # refresh the screen
 
